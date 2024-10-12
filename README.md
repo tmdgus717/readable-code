@@ -261,9 +261,7 @@ void 산책하면서_돈쓰기(){
    - 메서드 시그니처에 납득이 가는, 적절한 타입의 반환값 돌려주기
    - void 대신 반환할 만한 값이 있는지 고민
      - 반환값을 통해 테스트 용이
-
-실습Tip
-- 파라미터와 연결지어 풍부하게 유추
+   
 ```java
 //cellInputCol로부터 Col을 변환할꺼야
 int selectedColIndex = convertColFrom(cellInputCol);
