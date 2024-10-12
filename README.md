@@ -266,3 +266,26 @@ void 산책하면서_돈쓰기(){
 //cellInputCol로부터 Col을 변환할꺼야
 int selectedColIndex = convertColFrom(cellInputCol);
 ```
+
+### 추상화 레벨 ⭐
+메서드로 추출 -> 경계가 발생한다 (마치 책 제목을 본 것)
+
+외부 세계 -> 추상화 레벨이 높다
+
+내부 세계 -> 추상화 레벨이 낮다
+
+```java
+showBoard();
+if (gameStatus == 1) { // 주변과 추상화 레벨이 다르다
+    System.out.println("지뢰를 모두 찾았습니다. GAME CLEAR!");
+    break;
+}
+```
+
+변경
+```java
+if (doesUserWinTheGame()) {
+    System.out.println("지뢰를 모두 찾았습니다. GAME CLEAR!");
+    break;
+}
+```
