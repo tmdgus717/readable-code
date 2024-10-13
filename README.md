@@ -299,3 +299,17 @@ if (doesUserWinTheGame()) {
 
 ---
 ## 논리, 사고의 흐름
+
+### Early return
+else 문을 사용하면 전체 로직을 **기억해야** 코드를 이해할 수 있다
+
+메서드로 추출 후 if 문 실행 시 **return** 을 활용하여 실행을 종료해 버리면 그 분기만 이해하면 된다
+
+<span style= "color:lime">결론 : Early return으로 else의 사용을 지양</span>
+
+### 사고의 depth 줄이기
+
+### 공백 라인
+### 부정어
+### 해피 케이스 + 예외 처리
+
