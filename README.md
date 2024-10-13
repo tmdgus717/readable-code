@@ -329,3 +329,44 @@ else 문을 사용하면 전체 로직을 **기억해야** 코드를 이해할 �
 ex) <span style= "color:red">!</span>왼쪽일때() -> **오른쪽일때()** || 왼쪽이아닐때()
 
 ### 해피 케이스 + 예외 처리
+
+- **검증이 필요한 부분은 주로 클라이언트의 데이터 (외부 세계와의 접점)**
+  - **사용자 입력**, 객체 생성자, 외부 서버의 요청 ...
+- <span style= "color:lime">의도한 예외와 예상하지 못한 예외를 구분하기</span>
+  - 사용자에게 보여줄 예외와, 개발자가 처리할 예외 구분!!!
+
+⭐ Null을 대하는 자세
+- NullPointException을 방지하는 방향으로 설계하기
+- 메서드 설계 시 return null 자제 -> Optional을 사용
+
+⭐ Optional
+- 꼭 필요한 상황에서 반환 타입에 사용
+- Optional을 파라미터로 받지 않는다
+  - 분기 케이스가 3개나 된다 
+  - Optional이 가진 데이터가 null인지 아닌지 + Optional 그 자체가 null 인지
+- Optional을 반환받았다면 최대한 빠르게 해소한다
+
+Optional을 해소하는 방법
+- ifPresent()-get() 대신 API 사용
+  - ex)orElseGet(), orElseThrow(), ifPresent(), ifPresentOrElse()
+  - ex) orElseGet(), orElseGet(), orElseThrow() 의 차이
+    - orElse() -> 항상 실행
+    - orElseGet() -> null인 경우 실행
+
+```java
+    public T orElse(T other) {
+        return value != null ? value : other;
+    }
+    
+    public T orElseGet(Supplier<? extends T> supplier) {
+        return value != null ? value : supplier.get();
+    }
+
+    public T orElseThrow() {
+        if (value == null) {
+            throw new NoSuchElementException("No value present");
+        }
+        return value;
+    }
+```
+
